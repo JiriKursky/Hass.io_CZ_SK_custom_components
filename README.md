@@ -1,6 +1,6 @@
 # Časovač pro řízení filtrace nebo čehokoli a vůbec
 Testováno na *hass.io* ver. 0.93.2 
-Navazuje na původní python_script verzi, která byla šílená na konfiguraci
+Navazuje na původní [python_script verzi](https://github.com/JiriKursky/Hass.io_CZ_SK), která byla šílená na konfiguraci.
 V tomto případě stačí jen stáhnout komponentu a provést konfiguraci. Žádné *automations.yaml*
 
 > **Upozornění:**
