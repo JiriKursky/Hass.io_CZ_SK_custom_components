@@ -1,7 +1,7 @@
 # Časovač pro řízení filtrace nebo čehokoli a vůbec
 Testováno na *hass.io* ver. 0.93.2 
 Navazuje na původní [python_script verzi](https://github.com/JiriKursky/Hass.io_CZ_SK), která byla šílená na konfiguraci.
-V tomto případě stačí jen stáhnout komponentu a provést konfiguraci. Žádné *automations.yaml*
+V tomto případě stačí jen stáhnout komponentu a provést konfiguraci. Žádné *automations.yaml* mimo volané entity k zapnutí a vypnutí zařízení.
 
 > **Upozornění:**
 > Konfigurace není úplně blbovzdorná, i když jsem to testoval, může shodit systém.
@@ -60,10 +60,11 @@ turnoffon:
     # Nazev entity - nemenit
     #
     filtrace:
-    # Nazev entity. Bude automaticky zalozena s nazvem turnoffon.filtrace
+    # Libovolny nazev entity. V tomto pripade bude automaticky zalozena entita s nazvem turnoffon.filtrace
     #
       action_entity_id: input_boolean.filtrace_zapni
       # Co se ma zapnout v danem casovem intervalu volanim turn_on a vypnout volanim turn_off
+      # musite zadefinovat v sekci input_boolean a navazat prislusnou automatizaci
       #
       timers: { "6:10":50, "10:10":30, "12:00":30, "13:10":2, "15:00":20, "17:00":20, "18:00":50, "20:00":30, "21:20":5 }      
       # Casovace. Musi zacinat slozenou zavorkou a taktez koncit.
