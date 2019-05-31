@@ -8,8 +8,8 @@ Stačí jen stáhnout komponentu a provést konfiguraci.
 Kde se může stát chyba je v konfiguraci, proto si zazálohujte *configuration.yaml* než do něj sáhnete. Doporučuji mít zvenku přístup na sobory pomocí [Samby](https://www.home-assistant.io/addons/samba/) nebo [SSH](https://www.home-assistant.io/addons/ssh/). Přinejhorším vrátíte zálohu konfigurace nebo smažete komponentu ve složkách.
 
 Pro instalaci potřebujete následující znalosti: 
-1. Nakopírovat do složky *custom_components* adresář *turnoffon*, který naleznete [zde](https://github.com/JiriKursky/Hass.io_CZ_SK_custom_components/tree/master/turnoffon)
-2. Upravit soubor *configuration.yaml*. Jak na to naleznetee ny youtube, například [zde](https://youtu.be/7mhFcJf6WqQ)
+1. Vytvořit složku *turnoffon* ve složce *config/custom_components* soubory, který naleznete [zde](https://github.com/JiriKursky/Hass.io_CZ_SK_custom_components/tree/master/turnoffon)
+2. Upravit soubor *configuration.yaml*. (Jak na to naleznete na youtube, například [zde](https://youtu.be/7mhFcJf6WqQ))
 
 Příklad co přidat do *configuration.yaml*:
 
@@ -40,3 +40,9 @@ turnoffon:
       name: Zadek
       timers: { "10:00":"12:00","22:00":"23:59" }
 ```
+Význam jednotlivých položek
+- turnoffon:
+    - filtrace:
+      action_entity_id: input_boolean.filtrace_zapni
+      timers: { "6:10":50, "10:10":30, "12:00":30, "13:10":2, "15:00":20, "17:00":20, "18:00":50, "20:00":30, "21:20":5 }      
+      condition_run: input_boolean.filtrace_timer
