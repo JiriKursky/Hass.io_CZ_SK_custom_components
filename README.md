@@ -5,17 +5,16 @@ Stačí jen stáhnout komponentu a provést konfiguraci.
 Trochu dávám ruce pryč od toho, pokud vám to bude dělat neplechu v systému.
 Nemělo by - jedu to v reálu na vlastních zařízeních.
 
-
 Je testováno na hass.io ver. 0.93.2 
+
+Co potřebujete za znalosti: 
+1. nakopírovat do složky custom_components adresář turnoffon
+2. upravit konfigurátor (soubor configuration.yaml)
 
 
 Pokud máte zkušenosti s custom_components můžete přeskočit následující odstavec.
 
-Co potřebujete: 
-možnost nakopírovat do složky custom_components adresář turnoffon odtud
-
-a úpravu v konfigurátoru 
-jak se do něj dostat naleznete zde 
+Úprava configuration.yaml 
 https://youtu.be/7mhFcJf6WqQ
 
 
