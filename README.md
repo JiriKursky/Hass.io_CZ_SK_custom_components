@@ -77,7 +77,7 @@ turnoffon:
       # Znamena od 6:10 - 7:00. Pokud to nejak prehodite, program to nehlida, nepokouset
       # S druhym zapisem muzete v pohode prekrocit 59 minut
       # ----------------
-      # Kazda carka znamena novy interval. Program zalozi casovac.filtrace_1, casovac.filtrace_2, ...
+      # Kazda carka znamena novy interval. Program zalozi turnoffon.filtrace_1, turnoffon.filtrace_2, ...
       # Vzdy pridava _1..._n
       # Pomoci automaticky zalozenych entit - muzete je zobrazit
       #
