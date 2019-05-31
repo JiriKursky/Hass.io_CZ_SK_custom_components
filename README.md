@@ -5,7 +5,7 @@ V tomto případě stačí jen stáhnout komponentu a provést konfiguraci. Žá
 
 > **Upozornění:**
 > Konfigurace není úplně blbovzdorná, i když jsem to testoval, může shodit systém.
-Kde se může stát chyba je v konfiguraci, proto si zazálohujte *configuration.yaml* než do něj sáhnete. Doporučuji mít zvenku přístup na sobory pomocí [Samby](https://www.home-assistant.io/addons/samba/) nebo [SSH](https://www.home-assistant.io/addons/ssh/). Přinejhorším vrátíte zálohu konfigurace nebo smažete komponentu *turnoffon* ve složce *config/custom_components*.
+Kde se může stát chyba je v konfiguraci, proto si zazálohujte *configuration.yaml* než do něj sáhnete. Doporučuji mít zvenku přístup na soubory pomocí [Samby](https://www.home-assistant.io/addons/samba/) nebo [SSH](https://www.home-assistant.io/addons/ssh/). Přinejhorším vrátíte zálohu konfigurace nebo smažete komponentu *turnoffon* ve složce *config/custom_components*.
 
 Pro instalaci potřebujete následující znalosti: 
 1. Vytvořit složku *turnoffon* ve složce *config/custom_components* soubory, který naleznete [zde](https://github.com/JiriKursky/Hass.io_CZ_SK_custom_components/tree/master/turnoffon)
