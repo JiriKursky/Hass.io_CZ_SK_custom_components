@@ -1,3 +1,17 @@
+"""
+Component for controlling devices in regular time
+
+Version is still not stable and wrong configuration can lead to frozen system
+
+Tested on under hass.io ver. 0.93.2 
+
+Many thanks to VDRainer, ballob authors of input_datetime, I used for inspiration
+https://github.com/home-assistant/home-assistant/tree/dev/homeassistant/components/input_datetime
+
+1.6.2019
+
+"""
+
 import logging
 import datetime
 import time
@@ -11,7 +25,6 @@ from homeassistant.helpers.restore_state import RestoreEntity
 from homeassistant.util import dt as dt_util
 from homeassistant.core import split_entity_id
 from homeassistant.helpers.event import async_track_time_interval
-
 
 DOMAIN = 'turnoffon'
 
