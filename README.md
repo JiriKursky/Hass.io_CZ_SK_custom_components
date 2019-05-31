@@ -1,35 +1,17 @@
 # Časovač pro řízení filtrace nebo čehokoli během dne
+Testováno na *hass.io* ver. 0.93.2 
 Navazuje na původní python_script verzi, která byla šílená na konfiguraci
 Stačí jen stáhnout komponentu a provést konfiguraci.
 
 > **Upozornění:**
 > Konfigurace není úplně blbovzdorná, i když jsem to testoval, může shodit i systém.
-Kde se může stát chyba je v konfiguraci, proto si zazálohujte cpnfiguration.yaml než do něj sáhnete. Doporučuji mít zvenku přístup na sobory pomocí Samby(https://www.home-assistant.io/addons/samba/) nebo SSH (https://www.home-assistant.io/addons/ssh/). Přinejhorším vrátíte zálohu konfigurace nebo smažete komponentu ve složkách.
+Kde se může stát chyba je v konfiguraci, proto si zazálohujte *configuration.yaml* než do něj sáhnete. Doporučuji mít zvenku přístup na sobory pomocí [Samby](https://www.home-assistant.io/addons/samba/) nebo [SSH](https://www.home-assistant.io/addons/ssh/). Přinejhorším vrátíte zálohu konfigurace nebo smažete komponentu ve složkách.
 
-Jinak to jedu v reálu na vlastních zařízeních.
+Pro instalaci potřebujete následující znalosti: 
+1. Nakopírovat do složky *custom_components* adresář *turnoffon*, který naleznete [zde](https://github.com/JiriKursky/Hass.io_CZ_SK_custom_components/tree/master/turnoffon)
+2. Upravit soubor *configuration.yaml*. Jak na to naleznetee ny youtube, například [zde](https://youtu.be/7mhFcJf6WqQ)
 
-Je testováno na hass.io ver. 0.93.2 
-
-Co potřebujete za znalosti: 
-1. nakopírovat do složky custom_components adresář turnoffon
-2. upravit konfigurátor (soubor configuration.yaml)
-
-
-Pokud máte zkušenosti s custom_components můžete přeskočit následující odstavec.
-
-Úprava configuration.yaml 
-https://youtu.be/7mhFcJf6WqQ
-
-
-Postup:
-zkopírovat odsud 
-
-https://github.com/JiriKursky/Hass.io_CZ_SK_custom_components/tree/master/turnoffon
-
-config/custom_components
-vše do stejnojmenné složky
-
-configuration.yaml:
+Příklad co přidat do *configuration.yaml*:
 
 ```yaml
 turnoffon:
