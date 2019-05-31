@@ -56,10 +56,12 @@ turnoffon:
       # co carka, to novy interval
       # vyznam "6:10":50 - bude začínat v 6:10 a zapnuto po dobu 50 minut
       # druhy interval nesmi byt mensi nebo roven nule a nesmi byt vetsi nez 59
-      # Pozor na cas 24:00
+      # Pozor na cas 24:00 - nefunguje
+      # ----------------
       # Druhy zpusob zapisu je "6:10":"7:00" 
       # Znamena od 6:10 - 7:00. Pokud to nejak prehodite, program to nehlida, nepokouset
       # S druhym zapisem muzete v pohode prekrocit 59 minut
+      # ----------------
       # Kazda carka znamena novy interval. Program zalozi casovac.filtrace_1, casovac.filtrace_2, ...
       # Vzdy pridava _1..._n
       # Pomoci automaticky zalozenych entit - muzete je zobrazit
