@@ -13,8 +13,8 @@ Pro instalaci potřebujete následující znalosti:
 
 > Program se chová tak, že v definovaný interval volá každou minutu službu *turn_on*, mimo něj *turn_off*.
 
-Minimalistické řešení. Filtrace bude ve dvou intervalech 10:20 - 20 minut a pak v 17:00 do 20:50
-zapíná *input_boolean.filtrace_zapni*
+Minimalistické řešení. Filtrace bude ve dvou intervalech 10:20 - 20 minut a pak od 17:00 do 20:50.
+Zapíná se a vypíná entita *input_boolean.filtrace_zapni*
 Příklad co přidat do *configuration.yaml*:
 ```yaml
 turnoffon:
