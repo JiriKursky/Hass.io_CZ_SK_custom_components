@@ -11,8 +11,10 @@ Pro instalaci potřebujete následující znalosti:
 1. Vytvořit složku *turnoffon* ve složce *config/custom_components* soubory, který naleznete [zde](https://github.com/JiriKursky/Hass.io_CZ_SK_custom_components/tree/master/turnoffon)
 2. Upravit soubor *configuration.yaml*. (Jak na to naleznete na youtube, například [zde](https://youtu.be/7mhFcJf6WqQ))
 
+> Program se chová tak, že v definovaný interval volá každou minutu službu *turn_on*, mimo něj *turn_off*.
+
 Minimalistické řešení. Filtrace bude ve dvou intervalech 10:20 - 20 minut a pak v 17:00 do 20:50
-Zapíná *input_boolean.filtrace_zapni*
+zapíná *input_boolean.filtrace_zapni*
 Příklad co přidat do *configuration.yaml*:
 ```yaml
 turnoffon:
