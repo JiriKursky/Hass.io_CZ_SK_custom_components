@@ -2,8 +2,8 @@
 Navazuje na původní python_script verzi, která byla šílená na konfiguraci
 Stačí jen stáhnout komponentu a provést konfiguraci.
 
-> Upozornění
-Konfigurace není úplně blbovzdorná, i když jsem to testoval, může shodit i systém.
+> **Upozornění:**
+> Konfigurace není úplně blbovzdorná, i když jsem to testoval, může shodit i systém.
 Kde se může stát chyba je v konfiguraci, proto si zazálohujte cpnfiguration.yaml než do něj sáhnete. Doporučuji mít zvenku přístup na sobory pomocí Samby(https://www.home-assistant.io/addons/samba/) nebo SSH (https://www.home-assistant.io/addons/ssh/). Přinejhorším vrátíte zálohu konfigurace nebo smažete komponentu ve složkách.
 
 Jinak to jedu v reálu na vlastních zařízeních.
