@@ -9,7 +9,7 @@ Kde se může stát chyba je v konfiguraci, proto si zazálohujte *configuration
 
 Pro instalaci potřebujete následující znalosti: 
 1. Vytvořit složku *turnoffon* ve složce *config/custom_components* soubory, který naleznete [zde](https://github.com/JiriKursky/Hass.io_CZ_SK_custom_components/tree/master/turnoffon)
-2. Upravit soubor *configuration.yaml*. (Jak na to naleznete na youtube, například [zde](https://youtu.be/7mhFcJf6WqQ))
+2. Upravit soubor *configuration.yaml*. (Jak na to, naleznete na youtube, například [zde](https://youtu.be/7mhFcJf6WqQ))
 
 > Program se chová tak, že v definovaný interval volá každou minutu službu *turn_on*, mimo něj *turn_off*.
 
