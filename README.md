@@ -1,4 +1,4 @@
-# Časovač pro řízení filtrace nebo čehokoli během dne
+# Časovač pro řízení filtrace nebo čehokoli a vůbec
 Testováno na *hass.io* ver. 0.93.2 
 Navazuje na původní python_script verzi, která byla šílená na konfiguraci
 Stačí jen stáhnout komponentu a provést konfiguraci.
@@ -11,7 +11,19 @@ Pro instalaci potřebujete následující znalosti:
 1. Vytvořit složku *turnoffon* ve složce *config/custom_components* soubory, který naleznete [zde](https://github.com/JiriKursky/Hass.io_CZ_SK_custom_components/tree/master/turnoffon)
 2. Upravit soubor *configuration.yaml*. (Jak na to naleznete na youtube, například [zde](https://youtu.be/7mhFcJf6WqQ))
 
+Minimalistické řešení. Filtrace bude ve dvou intervalech 10:20 - 20 minut a pak v 17:00 do 20:50
+Zapíná *input_boolean.filtrace_zapni*
 Příklad co přidat do *configuration.yaml*:
+```yaml
+turnoffon:
+    filtrace:
+      action_entity_id: input_boolean.filtrace_zapni
+      timers: { "10:20":20, "17:00":"20:50" }      
+```
+Toť vše.
+
+Složitější řešení - několik intervalů
+*configuration.yaml*:
 
 ```yaml
 turnoffon:
