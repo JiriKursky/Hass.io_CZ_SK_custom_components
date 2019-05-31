@@ -41,8 +41,30 @@ turnoffon:
       timers: { "10:00":"12:00","22:00":"23:59" }
 ```
 Význam jednotlivých položek
-- turnoffon:
-    - filtrace:
+```yaml
+turnoffon:    
+    # Nazev entity - nemenit
+    #
+    filtrace:
+    # Nazev entity. Bude automaticky zalozena s nazvem turnoffon.filtrace
+    #
       action_entity_id: input_boolean.filtrace_zapni
+      # Co se ma zapnout v danem casovem intervalu volanim turn_on a vypnout volanim turn_off
+      #
       timers: { "6:10":50, "10:10":30, "12:00":30, "13:10":2, "15:00":20, "17:00":20, "18:00":50, "20:00":30, "21:20":5 }      
+      # Casovace. Musi zacinat slozenou zavorkou a taktez koncit.
+      # co carka, to novy interval
+      # vyznam "6:10":50 - bude začínat v 6:10 a zapnuto po dobu 50 minut
+      # druhy interval nesmi byt mensi nebo roven nule a nesmi byt vetsi nez 59
+      # Pozor na cas 24:00
+      # Druhy zpusob zapisu je "6:10":"7:00" 
+      # Znamena od 6:10 - 7:00. Pokud to nejak prehodite, program to nehlida, nepokouset
+      # S druhym zapisem muzete v pohode prekrocit 59 minut
+      # Kazda carka znamena novy interval. Program zalozi casovac.filtrace_1, casovac.filtrace_2, ...
+      # Vzdy pridava _1..._n
+      # Pomoci automaticky zalozenych entit - muzete je zobrazit
+      #
       condition_run: input_boolean.filtrace_timer
+      # Timto je mozno rucne vypnout. Nastavite-li input_boolean v condition run na "off" nebude se nic provadet
+      # Pouzivam, pro cerpadlo zavlahy, pokud sensor ukazuje dest - nezalevam
+```
