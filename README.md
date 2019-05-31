@@ -11,7 +11,7 @@ vše do stejnojmenné složky
 
 configuration.yaml:
 
-```yaml```
+```yaml
 turnoffon:
     filtrace:
       action_entity_id: input_boolean.filtrace_zapni
