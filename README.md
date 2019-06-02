@@ -4,6 +4,9 @@ Navazuje na původní [python_script verzi](https://github.com/JiriKursky/Hass.i
 V tomto případě stačí jen stáhnout komponentu a provést konfiguraci. Žádné *automations.yaml* mimo volané entity k zapnutí a vypnutí zařízení.
 
 > **Upozornění:**
+_Prosím pozor na verzi z 2.6.2019. Oproti předchozí je změna ve tvorbě entit, kde se místo přidání k základní dávalo _1, _2 teď je _01, _02. Nemá to vliv, pokud jste to nevyužili jako zobrazení state. Vzhledem k tomu, že jsem nepřítelem těchto změn, slibuji, že dále již budu zachovávat kompatibilitu.
+
+> **Upozornění:**
 > Konfigurace není úplně blbovzdorná, i když jsem to testoval, může shodit systém.
 Kde se může stát chyba je v konfiguraci, proto si zazálohujte *configuration.yaml* než do něj sáhnete. Doporučuji mít zvenku přístup na soubory pomocí [Samby](https://www.home-assistant.io/addons/samba/) nebo [SSH](https://www.home-assistant.io/addons/ssh/). Přinejhorším vrátíte zálohu konfigurace nebo smažete komponentu *turnoffon* ve složce *config/custom_components*.
 
@@ -78,7 +81,7 @@ turnoffon:
       # S druhym zapisem muzete v pohode prekrocit 59 minut
       # ----------------
       # Kazda carka znamena novy interval. Program zalozi turnoffon.filtrace_1, turnoffon.filtrace_2, ...
-      # Vzdy pridava _1..._n
+      # Vzdy pridava _01, _02..._10, _11... , _101, _102 .. _n
       # Pomoci automaticky zalozenych entit - muzete je zobrazit
       #
       condition_run: input_boolean.filtrace_timer
