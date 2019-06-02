@@ -4,7 +4,7 @@ Navazuje na původní [python_script verzi](https://github.com/JiriKursky/Hass.i
 V tomto případě stačí jen stáhnout komponentu a provést konfiguraci. Žádné *automations.yaml* mimo volané entity k zapnutí a vypnutí zařízení.
 
 > **Upozornění:**
-_Prosím pozor na verzi z 2.6.2019. Oproti předchozí je změna ve tvorbě entit, kde se místo přidání k základní dávalo _1, _2 teď je _01, _02. Nemá to vliv, pokud jste to nevyužili jako zobrazení state. Vzhledem k tomu, že jsem nepřítelem těchto změn, slibuji, že dále již budu zachovávat kompatibilitu.
+_Prosím pozor na verzi z 2.6.2019. Oproti předchozí je změna ve tvorbě entit, kde se místo přidání k základní připojovalo k enitě _1, _2 teď je _01, _02. Nemá to vliv, pokud jste to nevyužili jako zobrazení state. Vzhledem k tomu, že jsem nepřítelem těchto změn, slibuji, že dále již budu zachovávat kompatibilitu.
 
 > **Upozornění:**
 > Konfigurace není úplně blbovzdorná, i když jsem to testoval, může shodit systém.
