@@ -1,0 +1,7 @@
+user: access
+password: !secret password_mqtt
+sonoff:
+    filtrace:
+      url: 192.168.0.54
+      control: input_boolean.test
+  
