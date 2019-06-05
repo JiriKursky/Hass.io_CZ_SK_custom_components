@@ -23,6 +23,6 @@ input_boolean:
     test:
         name: Volunteer
 ```
-a po restartu a zachování duševní rovnováhy přidejte na kartu mezi entities *imput_boolean.test* a pro kontrolu *sonata.filtrace*
+a po restartu a zachování duševní rovnováhy přidejte na kartu mezi entities *input_boolean.test* a pro kontrolu *sonata.filtrace*
 
 Co se plánuje: reakce budou rychlejší a zobrazování hodnot v intervalu co utáhne stroj a síť
