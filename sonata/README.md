@@ -1,7 +1,7 @@
 # Sonata
 
 Nahrazení doplňku MQTT přímou komunikací s Tasmotou
-Používá sice konfiguraci MQTT na tasmmotě, ale komunikuje přes http na místní síti
+Používá sice konfiguraci MQTT na tasmotě, ale komunikuje přes http na místní síti
 
 Zatím absolutně bez kontroly, alfa verze
 *configuration.yaml*
