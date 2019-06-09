@@ -8,7 +8,7 @@ jediné co potřebujete je ip adresa na místní síti
 
 Pro test můžete zkusit
 - http://ip_zarizeni/cm?&cmnd=POWER
-- pokud bude odpověděď ve stylu {"POWER":"OFF"} nebo {"POWER":"ON"} mělo by to fungovat
+- pokud bude odpověď ve stylu {"POWER":"OFF"} nebo {"POWER":"ON"} mělo by to fungovat
 
 
 příklad minimální konfigurace:
