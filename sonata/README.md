@@ -18,11 +18,11 @@ příklad minimální konfigurace:
 switch:
     - platform: sonata
       switches:
-        filtrace:
+        muj_switch:
           ip_address: ip_zarizeni
 ```
 Instalace:
-- zjistěte IP adresu zařízení, doporučuji otevřít prohlížeč a zadejte tento příkaz
 - tam kde máte soubor *configuration.yaml* vytvořit složku, pokud ji již nemáte *custom_components* a do ní přidat složku *sonata*
 - nakopírovat vše co je zde v adresáři 
-- restart HA a úprava *configuration.yaml*
+- restart HA a úprava *configuration.yaml* v sekci *switch* viz výše, další se přidávají pod sebe
+- znovu restart HA a měl by být k dispozici například *switch.muj_switch*.
