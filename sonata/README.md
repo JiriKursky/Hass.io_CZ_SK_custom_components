@@ -1,10 +1,10 @@
 # Sonata
 
-Nahrazení doplňku MQTT přímou komunikací s Tasmotou
+Komunikace Sonoff jeden kanál s Tasmotou přes http
 
-Komunikuje přes http na místní síti, MQTT může být vypnuto
+MQTT může být vypnuto
 
-jediné co potřebujete je ip na místní síti
+jediné co potřebujete je ip adresa na místní síti
 
 příklad minimální konfigurace:
 
@@ -18,5 +18,5 @@ switch:
 ```
 Instalace:
 - tam kde máte soubor *configuration.yaml* vytvořit adresář, pokud ho již nemáte *custom_components/sonata/*
-- nakopírovat vše co je zde v adresáři
--- ahoj
+- nakopírovat vše co je zde v adresáři 
+- restart HA a úprava *configuration.yaml*
