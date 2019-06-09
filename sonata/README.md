@@ -17,4 +17,6 @@ switch:
           ip_address: 192.168.XX.YY
 ```
 Instalace:
-- tam kde máte soubor *configuration.yaml" vytvořit adresář, pokud ho již nemáte *custom_components/sonata/*
+- tam kde máte soubor *configuration.yaml* vytvořit adresář, pokud ho již nemáte *custom_components/sonata/*
+- nakopírovat vše co je zde v adresáři
+-- ahoj
