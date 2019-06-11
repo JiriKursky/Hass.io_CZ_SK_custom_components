@@ -72,8 +72,14 @@ class SonoffSensor(Entity):
         if not icon:
             icon = SENSORS[sensor_type][S_ICON]
         self._icon = icon        
-        self._tjs = TimerJaroslavaSoukupa(hass, self, self.update, self._interval)
+        self._tjs = None
         
+        
+    @property
+    def should_poll(self):
+        """If entity should be polled."""
+        # Has its own timer for refreshing
+        return False
 
     @property
     def name(self):
@@ -85,6 +91,12 @@ class SonoffSensor(Entity):
         """Return the icon of the sensor."""
         return self._icon
 
+    async def async_added_to_hass(self):        
+        """Run when entity about to be added."""
+        await super().async_added_to_hass()        
+        if self._tjs is None:
+            self._tjs = TimerJaroslavaSoukupa(self.hass, self, self.update, self._interval)
+    
     @property
     def state(self):
         """Return the state of the sensor."""

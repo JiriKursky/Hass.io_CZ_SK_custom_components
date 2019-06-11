@@ -38,7 +38,7 @@ SENSORS = {
     ST_CURRENT: {
         S_CMND: CMND_STATUS,
         S_VALUE:  ["StatusSNS", "ENERGY", "Current"] ,
-        S_SCAN_INTERVAL: timedelta(seconds=2),
+        S_SCAN_INTERVAL: timedelta(seconds=10),
         S_UNIT: 'A',
         S_ICON: 'mdi:current-ac'
     }
