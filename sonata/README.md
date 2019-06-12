@@ -24,9 +24,7 @@ switch:
 # sensor
 ```yaml
 sensor:
-    - platform: sonata
-      username: access
-      password: !secret password_web
+    - platform: sonata     
       sensors:
         bazen:      
           ip_address: 192.168.X.XX
