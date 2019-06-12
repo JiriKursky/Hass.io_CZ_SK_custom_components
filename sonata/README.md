@@ -12,7 +12,7 @@ Pro test můžete zkusit
 
 
 příklad minimální konfigurace:
-* zap/vyp
+# zap/vyp
 *configuration.yaml*
 ```yaml
 switch:
