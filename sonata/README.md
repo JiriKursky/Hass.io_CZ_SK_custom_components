@@ -21,6 +21,23 @@ switch:
         muj_switch:
           ip_address: ip_zarizeni
 ```
+# sensor
+```yaml
+sensor:
+    - platform: sonata
+      username: access
+      password: !secret password_web
+      sensors:
+        bazen:      
+          ip_address: 192.168.X.XX
+          friendly_name: Teplota vody
+          sensor_type: temperature    
+        cerpadlo:      
+          ip_address: 192.168.X.XX
+          friendly_name: Čerpadlo      
+          sensor_type: current    # Proud - pozor, zde dotazování s vysokou frekvencí
+```                                  
+      
 Instalace:
 - tam kde máte soubor *configuration.yaml* vytvořit složku, pokud ji již nemáte *custom_components* a do ní přidat složku *sonata*
 - nakopírovat vše co je zde v adresáři 
