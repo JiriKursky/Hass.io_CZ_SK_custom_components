@@ -22,6 +22,7 @@ switch:
           ip_address: ip_zarizeni
 ```
 # sensor
+Podpora poue DS18B20 v případě teploty
 ```yaml
 sensor:
     - platform: sonata     
