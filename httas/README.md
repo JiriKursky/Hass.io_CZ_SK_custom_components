@@ -1,4 +1,4 @@
-# Http
+# Httas
 
 Komunikace Sonoff jeden kanál s Tasmotou přes http 
 
