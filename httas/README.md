@@ -46,6 +46,6 @@ Instalace:
 Popis chování:
 - pokud daný switch či sensor neodpoví do 0.3 vteřiny, je indikovaná chyba
 - pokud neodpoví do 0.3 vteřiny je zaslána předchozí hodnota (max. 5x)
-- je-li na daném zařízení chyba více jak 5x za sebou - oznámení uživateli a nebudou prováděny další dotazy
+- je-li na daném zařízení chyba více jak 5x za sebou - oznámení uživateli a další dotazy budou po 59 vteřinách
 - v případě stavu (je-li zap/vyp, teploty), je zařízení dotazováno jednou za 30 vteřin
 - u proudu přibližně jednou za 10 vteřin
