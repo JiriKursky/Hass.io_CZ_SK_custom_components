@@ -36,6 +36,7 @@ S_ICON = 'ICON'
 ST_TEMPERATURE = 'temperature'
 ST_CURRENT = 'current'
 ST_VOLTAGE = 'voltage'
+MAX_LOST = 5                        # Can be lost in commincation
 
 # definition of type of sensors
 SENSORS = {
@@ -73,15 +74,11 @@ SENSOR_SCHEMA = vol.Schema({
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Optional(CONF_USERNAME, default = ''): cv.string,    
     vol.Optional(CONF_PASSWORD, default = ''): cv.string,
-    vol.Optional(CONF_ICON, default = ''): cv.string,
+    vol.Optional(CONF_ICON): cv.string,
     vol.Optional(CONF_SENSORS, default={}):
         cv.schema_with_slug_keys(SENSOR_SCHEMA),
 })
 
-def get_linenumber():
-    """ Returning line of code using for debug """
-    cf = currentframe()
-    return cf.f_back.f_lineno
 
 def setup_platform(hass, config, add_entities, discovery_info=None):
     """Set up the httas sensors."""
@@ -95,21 +92,21 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
     
     entities = []
     for object_id, pars in sensors.items():        
-        base_url = 'http://'+pars[CONF_IP_ADDRESS]+'/cm?'
-        if len(username)>0:
+        base_url = "http://{}/cm?".format(pars[CONF_IP_ADDRESS])
+        # username and passord is using only when protected internal
+        if len(username) > 0:
             base_url += '&user='+username
-        if len(password)>0:
+        if len(password) > 0:
             base_url += '&password='+password
-        base_url += '&cmnd='
-                
-        entity = SonoffSensor(hass, object_id, pars.get(CONF_FRIENDLY_NAME), pars.get(CONF_SENSOR_TYPE), pars.get(CONF_ICON), base_url)
+        base_url += '&cmnd='    
+        entity = SonoffSensor(hass, object_id, pars.get(CONF_FRIENDLY_NAME), pars.get(CONF_SENSOR_TYPE),  base_url, pars)
         entities.append(entity)
     add_entities(entities)
 
 class SonoffSensor(Entity):
     """Representation of a Sonoff device sensor."""
 
-    def __init__(self, hass, object_id, name, sensor_type, icon, base_url):        
+    def __init__(self, hass, object_id, name, sensor_type, base_url, pars):        
         """Initialize the sensor."""
         self._name = name
         self.entity_id = ENTITY_ID_FORMAT.format(object_id+'_'+sensor_type)
@@ -121,12 +118,22 @@ class SonoffSensor(Entity):
         self._unit_of_measurement = SENSORS[sensor_type][S_UNIT]
         self._cmnd = SENSORS[sensor_type][S_CMND]
         self._state = None
-        if not icon:
+        icon = pars.get(CONF_ICON)
+        if icon is None:
             icon = SENSORS[sensor_type][S_ICON]
         self._icon = icon                
         self._next_expiration = None
+        self._ip_address = pars[CONF_IP_ADDRESS]      
+        self._lost = 0
+        self._lost_informed = False
         
-        
+    def _debug(self, s):
+        cf = currentframe()
+        line = cf.f_back.f_lineno
+        if s is None:
+             s = ''
+        _LOGGER.debug("line: {} ip_address: {} msg: {}".format(line, self._ip_address, s))
+
     @property
     def should_poll(self):
         """If entity should be polled."""
@@ -147,8 +154,8 @@ class SonoffSensor(Entity):
         return  self._base_url + cmnd        
     
     async def _do_update(self):
-        _LOGGER.debug("***************")
-        _LOGGER.debug(self._to_get(self._cmnd))
+        self._debug("update: {}".format(self._cmnd))        
+        
         websession = async_get_clientsession(self.hass)                
         value = None
         try:
@@ -160,22 +167,37 @@ class SonoffSensor(Entity):
                 except:            
                     value = None
         except:
-            _LOGGER.debug("-------------except--------------")
-        _LOGGER.debug(value)                                             
+            self._debug('except')
+            
+        self._debug("value: {}".format(value))                                             
             
         if value is None:
             self._state = None
+            scan_interval = 5
             self._is_available = False
+            if self._lost > MAX_LOST:
+                scan_interval = 59
+                if not self._lost_informed:
+                    self.hass.components.persistent_notification.create(
+                        "{} has permanent error.<br/>Please fix device. Scan interval is {} seconds now".format(self._ip_address, scan_interval),
+                        title=DOMAIN)                
+                    self._lost_informed = True
+            else:
+                self._lost += 1
             self.async_schedule_update_ha_state()
-            _LOGGER.debug("Další volání za: 5")            
-            self.hass.helpers.event.async_call_later(5, self._do_update())        
+            self._debug("no success scan interval reduced to {} seconds".format(scan_interval))
+            self.hass.helpers.event.async_call_later(scan_interval, self._do_update())        
             return False
-        
+        self._lost = 0
+        if self._lost_informed:
+            self.hass.components.persistent_notification.create(
+                "{} is ok. Scan interval is {} seconds now".format(self._ip_address, self._scan_interval),
+                title=DOMAIN)                                
         value = self._json_key_value(SENSORS[self._sensor_type][S_VALUE], value)                                            
         self._state = value
         self._is_available = True
         self.async_schedule_update_ha_state()
-        _LOGGER.debug("Další volání za: "+str(self._scan_interval))
+        self._debug("Next call in {} seconds".format(self._scan_interval))
         self.hass.helpers.event.async_call_later(self._scan_interval, self._do_update())        
         return True
 
@@ -183,7 +205,7 @@ class SonoffSensor(Entity):
         """Run when entity about to be added."""
         await super().async_added_to_hass()                
         await self._do_update()   
-        _LOGGER.debug("Added!!!!!!!!!!")     
+        self._debug("entity added")        
     
     @property
     def state(self):
