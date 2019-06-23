@@ -1,14 +1,7 @@
 # Časovač pro řízení filtrace nebo čehokoli a vůbec
-Testováno na *hass.io* ver. 0.93.2 
+Testováno na *hass.io* ver. 0.93.2 a výše
 Navazuje na původní [python_script verzi](https://github.com/JiriKursky/Hass.io_CZ_SK), která byla šílená na konfiguraci.
 V tomto případě stačí jen stáhnout komponentu a provést konfiguraci. Žádné *automations.yaml* mimo volané entity k zapnutí a vypnutí zařízení.
-
-> **Upozornění:**
-_Prosím pozor na verzi z 2.6.2019. Oproti předchozí je změna ve tvorbě entit, kde se místo přidání k základní připojovalo k enitě _1, _2 teď je _01, _02. Nemá to vliv, pokud jste to nevyužili jako zobrazení state. Vzhledem k tomu, že jsem nepřítelem těchto změn, slibuji, že dále již budu zachovávat kompatibilitu.
-
-> **Upozornění:**
-> Konfigurace není úplně blbovzdorná, i když jsem to testoval, může shodit systém.
-Kde se může stát chyba je v konfiguraci, proto si zazálohujte *configuration.yaml* než do něj sáhnete. Doporučuji mít zvenku přístup na soubory pomocí [Samby](https://www.home-assistant.io/addons/samba/) nebo [SSH](https://www.home-assistant.io/addons/ssh/). Přinejhorším vrátíte zálohu konfigurace nebo smažete komponentu *turnoffon* ve složce *config/custom_components*.
 
 Pro instalaci potřebujete následující znalosti: 
 1. Vytvořit složku *turnoffon* ve složce *config/custom_components* soubory, který naleznete [zde](https://github.com/JiriKursky/Hass.io_CZ_SK_custom_components/tree/master/turnoffon)
